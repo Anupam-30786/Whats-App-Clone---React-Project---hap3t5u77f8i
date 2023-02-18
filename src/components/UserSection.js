@@ -5,9 +5,9 @@ import TopIcon from "./TopIcon";
 
 function UserSection() {
   return (
-    <div className="col-md-4">
+    <div className="col-md-3">
       <TopIcon />
-      <SearchBar />
+      <SearchBar Component={<UserSection />} />
       <ChatUser />
     </div>
   );

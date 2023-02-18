@@ -1,29 +1,50 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Image } from "react-bootstrap";
 import "../styles/App.css";
+import ChatUser from "./ChatUser";
+import ClickedUser from "./clickedUser";
+import ClickContext from "./Context/ClickContext";
 
-function User({ user }) {
+function User({ user, Component }) {
+  const istrue = Component.type === ChatUser;
+  // console.log("hello", user);
+
+  const { setIsClicked, setCurrentUser, isClicked, currentUser } =
+    useContext(ClickContext);
   return (
     <Card
       className="d-flex flex-row h6"
-      size={3}
-      style={{ objectFit: "none" }}
+      style={{ objectFit: "none", height: 72 + "px" }}
       onClick={() => {
-        console.log("hello");
+        setIsClicked(true);
+        setCurrentUser(user);
+        console.log("currentUser is", currentUser);
+        console.log(isClicked, currentUser);
       }}
     >
       <Card.Body className="d-flex flex-row">
-        <div className="d-flex w-25 justify-content-center">
+        <div
+          className={
+            istrue
+              ? "d-flex  justify-content-center align-items-sm-center "
+              : "d-flex  justify-content-center align-items-sm-center"
+          }
+        >
           <Image
             className="carousel-control-next-icon img icon"
             src="https://www.thefamouspeople.com/profiles/images/ab-de-villiers-1.jpg"
             roundedCircle={true}
-            style={{ height: "50", width: "50" }}
           />
         </div>
-        <div className=" d-flex justify-content-center flex-column w-75 icon">
+        <div
+          className={
+            istrue
+              ? " d-flex justify-content-center flex-column w-75 icon"
+              : "d-flex justify-content-center flex-column icon ms-4"
+          }
+        >
           <h5 align="center">{user.name}</h5>
-          <p align="center">{user.messages[0].message}</p>
+          {istrue ? <p align="center">{user.messages[0].message}</p> : ""}
         </div>
       </Card.Body>
     </Card>

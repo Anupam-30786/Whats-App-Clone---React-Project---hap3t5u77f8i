@@ -1,43 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import User from "./User";
+import ClickContext from "./Context/ClickContext";
+import SearchBar from "./SearchBar";
 
 function ChatUser() {
-  const [Profiles, setProfiles] = useState([
-    {
-      name: "Varun",
-      profilePic: "img1.jpg",
-      messages: [
-        { message: "Hello Friend . How are you ?", from: "self" },
-        { message: "I am good how are you ?", from: "me" },
-        { message: "Doing Good", from: "self" },
-        { message: "When is our Exam ?", from: "self" },
-      ],
-    },
-    {
-      name: "Anurag",
-      profilePic: "img2.jpg",
-      messages: [
-        { message: "Where are you?", from: "self" },
-        { message: "I am in school", from: "me" },
-      ],
-    },
-  ]);
-
-  useEffect(() => {
-    if (localStorage.getItem("isToken"))
-      localStorage.setItem("data", JSON.stringify(Profiles));
-    else {
-      var storedData = JSON.parse(localStorage.getItem("data"));
-    }
-
-    console.log(storedData);
-    setProfiles(storedData);
-  }, []);
+  const { Profiles, setProfiles, searchArray, setSearchArray } =
+    useContext(ClickContext);
   return (
     <div>
-      {Profiles.map((user, i) => {
+      {searchArray.map((user, i) => {
         //  console.log(i);
-        return <User user={user} key={i} />;
+        return <User user={user} Component={<ChatUser />} />;
       })}
     </div>
   );
