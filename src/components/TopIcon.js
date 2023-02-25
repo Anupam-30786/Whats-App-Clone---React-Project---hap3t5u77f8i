@@ -9,15 +9,18 @@ import SearchBar from "./SearchBar";
 
 function TopIcon() {
   return (
-    <div className="col-md-5 bg-dark w-100 mt-3 d-flex  justify-content-between">
-      <div className="d-flex  justify-content-between col">
+    <div
+      className="col-md-5 w-100  d-flex  justify-content-between"
+      style={{ height: "73px", backgroundColor: "whitesmoke" }}
+    >
+      <div className="d-flex  justify-content-between col ">
         <FaRegUserCircle size="40" className="icon m-2" />
       </div>
       <div className="d-flex col ">
-        <HiOutlineUserGroup size={30} className="icon m-3" />
-        <RiRefreshLine size={30} className="icon m-3" />
-        <BiMessageDetail size={30} className="icon m-3" />
-        <BsThreeDotsVertical size={30} className="icon m-3" />
+        <HiOutlineUserGroup size={35} className="icon m-3" />
+        <RiRefreshLine size={35} className="icon m-3" />
+        <BiMessageDetail size={35} className="icon m-3" />
+        <BsThreeDotsVertical size={35} className="icon m-3" />
       </div>
     </div>
   );

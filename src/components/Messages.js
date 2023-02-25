@@ -11,11 +11,17 @@ function Messages() {
           <div
             className={
               messages.from === "me"
-                ? "bg-dark m-3 p-2 rounded w-25 align-self-end"
-                : "bg-dark m-3 p-2 rounded w-25 "
+                ? "align-self-end bg-gradient m-3 p-2 rounded"
+                : "align-self-start bg-gradient m-3 p-2 rounded "
             }
           >
-            {messages.message}
+            <p
+              className="shadow-sm"
+              style={{ fontWeight: "bold", color: "initial" }}
+            >
+              {" "}
+              {messages.message}
+            </p>
           </div>
         );
       })}

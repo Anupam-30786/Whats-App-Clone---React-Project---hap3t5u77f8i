@@ -14,8 +14,10 @@ function ClickedUser() {
       {isClicked ? (
         <div className="d-flex flex-column justify-content-between h-100">
           <User user={currentUser} Component={<ClickedUser />} />
-          <Messages />
-          <div className="d-flex flex-end flex-column">
+          <div className="d-flex flex-end flex-column pt-5 mt-5">
+            <Messages />
+          </div>
+          <div className="d-flex flex-end flex-column p-4">
             <SearchBar Component={<Messages />} />
           </div>
         </div>

@@ -10,16 +10,41 @@ const App = () => {
   const [searchArray, setSearchArray] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [check, setCheck] = useState(0);
-  const [Profiles, setProfiles] = useState(
-    JSON.parse(localStorage.getItem("data"))
-  );
+  const [notification, setNotification] = useState(0);
 
-  var storedData = [];
+  const [Profiles, setProfiles] = useState([]);
+  const data = [
+    {
+      name: "Varun",
+      profilePic: "img1.jpg",
+      messages: [
+        { message: "Hello Friend . How are you ?", from: "self" },
+        { message: "I am good how are you ?", from: "me" },
+        { message: "Doing Good", from: "self" },
+        { message: "When is our Exam ?", from: "self" },
+      ],
+    },
+    {
+      name: "Anurag",
+      profilePic: "img2.jpg",
+      messages: [
+        { message: "Where are you?", from: "self" },
+        { message: "I am in school", from: "me" },
+      ],
+    },
+  ];
 
   useEffect(() => {
-    setSearchArray(Profiles);
+    if (localStorage.getItem("data")) {
+      var storedData = JSON.parse(localStorage.getItem("data"));
+      setProfiles(storedData);
+    } else {
+      localStorage.setItem("data", JSON.stringify(data));
+      setProfiles(data);
+    }
+    setSearchArray(storedData);
   }, []);
+  console.log(searchArray);
 
   return (
     <div id="main">
@@ -34,6 +59,8 @@ const App = () => {
             Profiles: Profiles,
             searchArray: searchArray,
             setSearchArray: setSearchArray,
+            notification: notification,
+            setNotification: setNotification,
           }}
         >
           <UserSection></UserSection>

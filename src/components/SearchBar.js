@@ -15,6 +15,8 @@ function SearchBar({ Component }) {
     setSearchArray,
     currentUser,
     setCurrentUser,
+    notification,
+    setNotification,
   } = useContext(ClickContext);
   const [searchString, setSearchString] = useState("");
   const [dummyArray, setDummyArray] = useState([]);
@@ -59,6 +61,7 @@ function SearchBar({ Component }) {
       Profiles[index] = JSON.parse(JSON.stringify(currentUser));
       localStorage.setItem("data", JSON.stringify(Profiles));
       setSearchArray(Profiles);
+      setNotification(notification + 1);
     }
   };
 
@@ -84,8 +87,8 @@ function SearchBar({ Component }) {
           </span>
         </div>
       ) : (
-        <div className="bg-dark d-flex">
-          <div className="d-flex bg-dark align-items-lg-center mx-5 mt-2 w-100">
+        <div className="bg-dark d-flex" style={{ positio: "sticky" }}>
+          <div className="bg-dark d-flex fixed-bottom ms-auto w-75">
             <InputGroup className="mb-3">
               <Form.Control
                 id="input"
