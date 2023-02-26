@@ -22,7 +22,7 @@ function ClickedUser() {
           </div>
         </div>
       ) : (
-        <div className="bg-dark d-flex h2 m-auto p-2">
+        <div className="bg-light d-flex h2 m-auto p-2 rounded-5">
           Click any user for chat
         </div>
       )}

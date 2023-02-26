@@ -16,7 +16,8 @@ const App = () => {
   const data = [
     {
       name: "Varun",
-      profilePic: "img1.jpg",
+      profilePic:
+        "https://www.cricbuzz.com/a/img/v1/152x152/i1/c171064/yuvraj-singh.jpg",
       messages: [
         { message: "Hello Friend . How are you ?", from: "self" },
         { message: "I am good how are you ?", from: "me" },
@@ -26,7 +27,8 @@ const App = () => {
     },
     {
       name: "Anurag",
-      profilePic: "img2.jpg",
+      profilePic:
+        "https://static.standard.co.uk/s3fs-public/thumbnails/image/2019/02/25/11/ab-de-villiers-2018a.jpg",
       messages: [
         { message: "Where are you?", from: "self" },
         { message: "I am in school", from: "me" },
