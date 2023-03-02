@@ -62,6 +62,7 @@ function SearchBar({ Component }) {
       localStorage.setItem("data", JSON.stringify(Profiles));
       setSearchArray(Profiles);
       setNotification(notification + 1);
+      document.getElementById("input").value = "";
     }
   };
 
