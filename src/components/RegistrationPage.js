@@ -6,7 +6,7 @@ function RegistrationPage() {
   const userRef = useRef("");
 
   const [userId, setUserId] = useState("");
-  const { setCurrentUser } = useContext(ClickContext);
+  const { setCurrentUser, setIsClicked } = useContext(ClickContext);
   const navigate = useNavigate();
   const registerUser = () => {
     const user = {
@@ -20,6 +20,7 @@ function RegistrationPage() {
 
     localStorage.setItem("data", JSON.stringify(storedData));
     setCurrentUser(user);
+    setIsClicked(true);
     navigate("/");
   };
   return (
