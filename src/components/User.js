@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Card, Image } from "react-bootstrap";
+import { BrowserRouter } from "react-router-dom";
 import "../styles/App.css";
 import ChatUser from "./ChatUser";
-import ClickedUser from "./clickedUser";
+
 import ClickContext from "./Context/ClickContext";
 
 function User({ user, Component }) {
@@ -71,7 +72,7 @@ function User({ user, Component }) {
                 className="ps-4"
                 style={{ fontSize: "small", fontWeight: "100" }}
               >
-                {user.messages[user.messages.length - 1].message}
+                {user.messages[user.messages.length - 1]?.message}
               </p>
               <span className="align-self-end align-self-sm-start ps-4 rounded-circle bg-alert">
                 <p>{notification > 0 ? notification : ""}</p>

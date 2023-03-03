@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import User from "./User";
 import ClickContext from "./Context/ClickContext";
-import SearchBar from "./SearchBar";
 
 function ChatUser() {
-  const { Profiles, setProfiles, searchArray, setSearchArray } =
-    useContext(ClickContext);
+  const { searchArray } = useContext(ClickContext);
   return (
     <div>
       {searchArray.map((user, i) => {
